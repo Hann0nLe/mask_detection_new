@@ -94,12 +94,14 @@ class VideoCamera(object):
 			cv2.rectangle(image,(x,y),(x+w,y+h),color_dict[label],2)
 			cv2.rectangle(image,(x,y-40),(x+w,y),color_dict[label],-1)
 			cv2.putText(image, labels_dict[label], (x, y-10),cv2.FONT_HERSHEY_SIMPLEX,0.8,(255,255,255),2)
-			if label==1:
-				sound.play()
-			else:
+			print(label)
+			if (label != 1):
 				sound.stop()
-		frame_flip = cv2.flip(image,1)
+			else:
+				sound.play(maxtime=150)
+		frame_flip = image
 		ret, jpeg = cv2.imencode('.jpg', frame_flip)
+		key=cv2.waitKey(200)
 		return jpeg.tobytes()
 
 
@@ -123,6 +125,6 @@ class IPWebCam(object):
 		for (x, y, w, h) in faces_detected:
 			cv2.rectangle(img, pt1=(x, y), pt2=(x + w, y + h), color=(255, 0, 0), thickness=2)
 		resize = cv2.resize(img, (640, 480), interpolation = cv2.INTER_LINEAR)
-		frame_flip = cv2.flip(resize,1)
+		frame_flip = resize
 		ret, jpeg = cv2.imencode('.jpg', frame_flip)
 		return jpeg.tobytes()

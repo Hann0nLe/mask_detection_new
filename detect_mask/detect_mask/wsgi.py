@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'video_stream.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'detect_mask.settings')
 
 application = get_wsgi_application()

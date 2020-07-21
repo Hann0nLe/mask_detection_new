@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'video_stream.urls'
+ROOT_URLCONF = 'detect_mask.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'video_stream.wsgi.application'
+WSGI_APPLICATION = 'detect_mask.wsgi.application'
 
 
 # Database
